@@ -1,15 +1,5 @@
-/* @jsxImportSource solid-js */
 import { createRoot, Component } from "solid-js";
-import { styled, ThemeProvider, setup } from "../src/index";
-
-declare module "../src/index" {
-  interface DefaultTheme {
-    colors: {
-      primary?: string;
-      secondary?: string;
-    };
-  }
-}
+import { styled, ThemeProvider, setup } from "../src";
 
 describe("Simple Styled", () => {
   test("Creates component properly", () => {
