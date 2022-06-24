@@ -7,7 +7,7 @@ import { setupConfiguration } from "./configuration";
 export function makeStyled(tag: string | symbol) {
   let _ctx = this || {};
   return (...args) => {
-    const Styled: any = (props) => {
+    const Styled: any = props => {
       const theme = useContext(ThemeContext);
       const withTheme = mergeProps(props, { theme }) as any;
       const clone = mergeProps(withTheme, {

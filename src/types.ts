@@ -51,6 +51,5 @@ export interface CSSAttribute extends CSSProperties {
 export type ShouldForwardProp = (props: string[]) => string[];
 
 export interface SetupConfiguration {
-    getForwardProps?: ShouldForwardProp;
+  getForwardProps?: ShouldForwardProp;
 }
-
