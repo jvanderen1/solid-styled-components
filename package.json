@@ -9,6 +9,7 @@
   "license": "MIT",
   "author": "Ryan Carniato",
   "sideEffects": false,
+  "main": "dist/solid-styled-components.cjs",
   "module": "dist/solid-styled-components.mjs",
   "source": "src/index.ts",
   "types": "dist/types.d.ts",
@@ -19,6 +20,7 @@
     "build": "parcel build",
     "pretty": "prettier --write .",
     "test": "jest",
+    "test:types": "tsc",
     "watch": "parcel watch"
   },
   "jest": {
