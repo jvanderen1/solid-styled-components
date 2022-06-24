@@ -2,13 +2,14 @@ import { spread, ssr, ssrSpread, isServer } from "solid-js/web";
 import { mergeProps, splitProps, useContext, untrack } from "solid-js";
 import { css } from "goober";
 import { ThemeContext } from "./ThemeContext";
+import { setupConfiguration } from "./configuration";
 
 export function makeStyled(tag: string | symbol) {
   let _ctx = this || {};
   return (...args) => {
-    const Styled = props => {
+    const Styled: any = (props) => {
       const theme = useContext(ThemeContext);
-      const withTheme = mergeProps(props, { theme });
+      const withTheme = mergeProps(props, { theme }) as any;
       const clone = mergeProps(withTheme, {
         get class() {
           const pClass = withTheme.class,
@@ -21,9 +22,10 @@ export function makeStyled(tag: string | symbol) {
           return [pClass, className].filter(Boolean).join(" ");
         }
       });
-      const [local, newProps] = splitProps(clone, ["as", "theme"]);
-      const htmlProps = getForwardProps
-        ? splitProps(newProps, getForwardProps(Object.keys(newProps)))[0]
+      // @ts-ignore
+      const [local, newProps] = splitProps(clone, ["as", "theme"]) as any;
+      const htmlProps = setupConfiguration.getForwardProps
+        ? splitProps(newProps, setupConfiguration.getForwardProps(Object.keys(newProps)))[0]
         : newProps;
       const createTag = local.as || tag;
 

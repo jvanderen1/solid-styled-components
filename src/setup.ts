@@ -1,11 +1,14 @@
-import { css, setup as gooberSetup } from "goober";
+import { setup as gooberSetup } from "goober";
+import {setupConfiguration} from './configuration';
 
+import type {ShouldForwardProp} from './types';
+
+// TODO: Should be provided by `goober`
 type GooberPrefixer = (key: string, val: any) => string;
-type ShouldForwardProp = (props: string[]) => string[];
 
 export function setup(prefixer?: GooberPrefixer, shouldForwardProp?: ShouldForwardProp) {
   gooberSetup(null, prefixer);
   if (shouldForwardProp) {
-    getForwardProps = shouldForwardProp;
+    setupConfiguration.getForwardProps = shouldForwardProp;
   }
 }
