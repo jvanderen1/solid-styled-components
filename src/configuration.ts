@@ -1,3 +1,3 @@
-import type { SetupConfiguration, ShouldForwardProp } from "./types";
+import type { SetupConfiguration } from "./types";
 
 export const setupConfiguration: SetupConfiguration = {};
